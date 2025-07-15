@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boeing 737-800 Full Flight Checklist (APU Only, FMC, Avionics, ATC)</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 2em;}
+    h2 { background: #4069b1; color: white; border-radius: 6px; padding: 0.2em 1em;}
+    h3 { background: #f1f7ff; color: #132b5e; border-left: 4px solid #2266a0; padding: 0.2em 1em; }
+    .section { background: white; border-radius: 8px; margin-bottom: 1.8em; padding: 1.5em; box-shadow: 0 2px 9px #ccd6e6;}
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 0.7em; font-size: 1.09em; }
+    .subtitle { font-weight: bold; color: #2266a0; margin-top: 1em;}
+    .atc, .fmc, .avionics { margin: 0.5em 0 0.5em 1.4em; padding: 0.7em 1.2em; border-radius: 5px; }
+    .atc { background: #f0fcf8; color: #034934; border-left: 4px solid #38a17d;}
+    .fmc { background: #fff6e3; color: #865a22; border-left: 4px solid #ffd966;}
+    .avionics { background: #f5f1fc; color: #474195; border-left: 4px solid #a699e6;}
+    .category { margin: 0.4em 0 0.2em 0; font-weight: 600; color: #0d2a66;}
+    input[type="checkbox"] { margin-right: 0.6em; transform: scale(1.25, 1.25);}
+    .top-controls {margin-bottom: 1em;}
+    button {padding: 0.45em 1.3em; border-radius: 5px; border: none; font-size: 1em; background: #4069b1; color: #fff; cursor: pointer; box-shadow: 0 2px 6px #c0cfea;}
+    button:hover {background: #294277;}
+  </style>
+  <script>
+    function uncheckAll() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(cb => cb.checked = false);
+    }
+  </script>
+</head>
+<body>
+  <h2>
+    Boeing 737-800 Full Flight Checklist <small style="font-size: 0.65em">APU Only, Avionics, ATC, FMC Steps</small>
+  </h2>
+  <div class="top-controls">
+    <button onclick="uncheckAll()">Uncheck All</button>
+  </div>
+
+  <div class="section">
+    <h3>1. Preliminary Cockpit Preparation (Cold and Dark)</h3>
+    <ul>
+      <li><input type="checkbox"> Battery ON, Standby Power AUTO</li>
+      <li><input type="checkbox"> Emergency Exit Lights ARMED</li>
+      <li><input type="checkbox"> Parking Brake SET</li>
+      <li><input type="checkbox"> APU Fire Switch IN</li>
+      <li><input type="checkbox"> APU START (observe EGT/RPM on Upper DU)</li>
+      <li><input type="checkbox"> APU GEN ON (check ELEC synoptic)</li>
+      <li><input type="checkbox"> IRS Mode Selectors OFF then NAV (alignment begins)</li>
+      <li><input type="checkbox"> Oxygen, Documents, Manuals checked</li>
+    </ul>
+    <div class="avionics">
+      <span class="category">Avionics:</span> ELEC synoptic: APU powering buses; IRS Panel/Upper DU: "ALIGN"/countdown; Standby attitude/clock. PFD/ND blank until IRS completes align.
+    </div>
+    <div class="atc">
+      Obtain ATIS via COMM radio, record QNH/runways/ATIS code.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>2. FMC (CDU) Initialization — Before Clearance</h3>
+    <div class="fmc">
+      <span class="category">FMC/CDU:</span>
+      <ul>
+        <li><input type="checkbox"> IDENT Page: confirm database</li>
+        <li><input type="checkbox"> POS INIT: set REF AIRPORT, GPS current/gate position for SET IRS POS</li>
+        <li><input type="checkbox"> ROUTE: ORIGIN/DEST ICAO, flight number, planned route</li>
+      </ul>
+    </div>
+    <div class="avionics">
+      CDU displays POS INIT/ROUTE; ND displays airport/plan on align complete.
+    </div>
+    <div class="atc">
+      None — prepare for clearance request.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>3. ATC Clearance</h3>
+    <ul>
+      <li><input type="checkbox"> Request clearance from Delivery: e.g. “Clearance Delivery, American 123, stand 14, request IFR to Chicago O’Hare, information Alpha.”</li>
+      <li><input type="checkbox"> Read back clearance (route, squawk, initial altitude)</li>
+      <li><input type="checkbox"> Set assigned squawk in XPDR (STBY)</li>
+    </ul>
+    <div class="fmc">
+      <span class="category">FMC/CDU:</span>
+      <ul>
+        <li><input type="checkbox"> DEP/ARR: Choose DEPARTURE runway and SID as cleared</li>
+        <li><input type="checkbox"> ROUTE: Airway transitions/waypoints</li>
+        <li><input type="checkbox"> LEGS: Clean up discontinuities</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>4. Before Pushback & Start</h3>
+    <ul>
+      <li><input type="checkbox"> Doors closed/locked, seatbelt ON</li>
+      <li><input type="checkbox"> Packs OFF, ISOL valve OPEN, APU BLEED ON</li>
+      <li><input type="checkbox"> Beacon ON</li>
+      <li><input type="checkbox"> Transponder code & STBY</li>
+    </ul>
+    <div class="fmc">
+      <span class="category">FMC/CDU:</span>
+      <ul>
+        <li><input type="checkbox"> ACTIVATE and EXEC route if needed</li>
+        <li><input type="checkbox"> PERF INIT: CRZ ALT, COST INDEX, ZFW, RESERVES, GCW</li>
+        <li><input type="checkbox"> N1 LIMIT: FLEX TEMP, N1 limit</li>
+        <li><input type="checkbox"> TAKEOFF REF: Flaps, CG/TRIM, V1/VR/V2 (accept/supplement as needed)</li>
+      </ul>
+    </div>
+    <div class="avionics">
+      CDU: DEP/ARR, EXECed, PERF, N1, TAKEOFF REF pages; ND: Runway, plan view, IRS complete.
+    </div>
+    <div class="atc">
+      “Ground, American 123, request push and engine start, information Alpha.”<br>
+      Confirm push direction with ground crew.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>5. Engine Start</h3>
+    <ul>
+      <li><input type="checkbox"> Packs OFF, ISOL valve OPEN, APU BLEED ON</li>
+      <li><input type="checkbox"> Engine 2 start: monitor N2, idle fuel at 25% N2</li>
+      <li><input type="checkbox"> Engine 1 start: same as above</li>
+      <li><input type="checkbox"> Engines stabilized; GEN1/GEN2 ON (ELEC transfer)</li>
+      <li><input type="checkbox"> APU BLEED OFF, ISOL AUTO, Packs ON</li>
+    </ul>
+    <div class="fmc">
+      <span class="category">FMC:</span> LEGS: first waypoint/runway cue, TAKEOFF REF: V-speeds visible
+    </div>
+    <div class="avionics">
+      Upper DU: engines/GENs/pressures green, ELEC: bus transfer to gens; ND: ready.
+    </div>
+    <div class="atc">
+      Notify ready for taxi if required.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>6. Taxi & Before Takeoff</h3>
+    <ul>
+      <li><input type="checkbox"> Brakes/steering test; recall check</li>
+      <li><input type="checkbox"> Flaps set for takeoff (per FMC)</li>
+      <li><input type="checkbox"> MCP: SPD V2, HDG, ALT match FMC/MCP, FDs ON, A/T ARM ON</li>
+      <li><input type="checkbox"> Flight instruments crosschecked</li>
+      <li><input type="checkbox"> Lights: taxi, strobes, landing</li>
+      <li><input type="checkbox"> Cabin crew notified for takeoff</li>
+    </ul>
+    <div class="fmc">
+      TAKEOFF REF: N1/V-speeds final check; LEGS: runway active
+    </div>
+    <div class="avionics">
+      Lower DU: Flaps/trim, spoilers ARM; ND: taxi/plan/map, magenta route
+    </div>
+    <div class="atc">
+      “Ground, American 123, request taxi, gate 14, Alpha for Runway 22R.”<br>
+      “Tower, American 123, holding short runway 22R, ready for departure.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>7. Takeoff</h3>
+    <ul>
+      <li><input type="checkbox"> Line up; thrust set; all lights ON</li>
+      <li><input type="checkbox"> Calls: 80 knots, V1, VR, positive rate—gear UP</li>
+    </ul>
+    <div class="fmc">
+      TAKEOFF REF: Review; LEGS: runway to SID leg
+    </div>
+    <div class="avionics">
+      PFD: TO/GA, ASI, V1/VR/V2 bug; ND: SID sequence
+    </div>
+    <div class="atc">
+      “Cleared for takeoff runway 22R, American 123.”<br>
+      On rotation: “Contact Departure…”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>8. After Takeoff & Climb</h3>
+    <ul>
+      <li><input type="checkbox"> Flaps up on schedule</li>
+      <li><input type="checkbox"> Engine start switches OFF at 1500ft AGL</li>
+      <li><input type="checkbox"> Packs ON, APU OFF at safe alt</li>
+    </ul>
+    <div class="fmc">
+      LEGS: Sequence, next restriction; PROG: ETA, next waypoint
+    </div>
+    <div class="avionics">
+      ND: SID/route, PFD: LNAV/VNAV active, FMA/ALT/SPEED
+    </div>
+    <div class="atc">
+      “Departure, American 123, passing 1,800 climbing 5,000.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>9. Climb/Cruise</h3>
+    <ul>
+      <li><input type="checkbox"> Monitor engines, fuel, pressurization</li>
+      <li><input type="checkbox"> MCP/AUTO modes follow climb/cruise</li>
+    </ul>
+    <div class="fmc">
+      PROG: Monitor cruise ETA/fuel; LEGS: track route, make directs if needed
+    </div>
+    <div class="avionics">
+      PFD: CRZ, ND: magenta route, CDU PROG active
+    </div>
+    <div class="atc">
+      “Center, American 123, FL350, level.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>10. Pre-Descent/Descent</h3>
+    <ul>
+      <li><input type="checkbox"> ATIS received, QNH set</li>
+      <li><input type="checkbox"> Approach briefing, set STAR/approach in FMC</li>
+      <li><input type="checkbox"> MCP ALT set to cleared level</li>
+      <li><input type="checkbox"> Seatbelts/landing lights as needed</li>
+    </ul>
+    <div class="fmc">
+      DEP/ARR: Select ARRIVAL, STAR, transition; LEGS: verify fix/speeds/alt; PROG: EFOB/fuel/ETA
+    </div>
+    <div class="avionics">
+      ND: STAR/approach profile; PFD: Alt/vertical mode
+    </div>
+    <div class="atc">
+      “American 123, descend and maintain FL240, cross BAF at 12,000, QNH 1015.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>11. Descent</h3>
+    <ul>
+      <li><input type="checkbox"> MCP ALT set to cleared constraint</li>
+      <li><input type="checkbox"> QNH set at transition, speed as cleared</li>
+      <li><input type="checkbox"> Seatbelts/approach checklist</li>
+      <li><input type="checkbox"> ILS/APP NAV aids set</li>
+    </ul>
+    <div class="fmc">
+      LEGS: Constraints monitored and cleaned; PROG: Arrival/fuel
+    </div>
+    <div class="avionics">
+      PFD: ALT tape, "VNAV PATH" or "ALT" mode; ND: approach track/plan
+    </div>
+    <div class="atc">
+      Acknowledge further descent/approach clearances.
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>12. Approach</h3>
+    <ul>
+      <li><input type="checkbox"> Tune/set flying ILS or visual (NAV RAD/APP NAV)</li>
+      <li><input type="checkbox"> Final flap setting, gear DOWN @ 2,000-1,500' AGL</li>
+      <li><input type="checkbox"> MCP set for final approach</li>
+      <li><input type="checkbox"> Landing checklist complete</li>
+    </ul>
+    <div class="fmc">
+      LEGS: Final approach fix, minima; PROG: Final checks, fuel/ETA
+    </div>
+    <div class="avionics">
+      PFD: FMA GS/LOC (ARM/CAPT), VREF bug; ND: Approach track; CDU LEGS active
+    </div>
+    <div class="atc">
+      “Tower, American 123, established ILS 22R.”<br>
+      “Cleared to land runway 22R, American 123.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>13. Landing</h3>
+    <ul>
+      <li><input type="checkbox"> Gear DOWN, three green</li>
+      <li><input type="checkbox"> Flaps FULL, Spoilers ARMED</li>
+      <li><input type="checkbox"> Landing checklist complete</li>
+      <li><input type="checkbox"> Touchdown with reverse/thrust as briefed</li>
+    </ul>
+    <div class="avionics">
+      PFD: GS/LOC centered, VREF check; ND: Final DME; Lower DU: FLAP & GEAR green
+    </div>
+    <div class="atc">
+      “Exit when able, contact Ground…”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>14. After Landing</h3>
+    <ul>
+      <li><input type="checkbox"> Spoilers DOWN</li>
+      <li><input type="checkbox"> Flaps UP</li>
+      <li><input type="checkbox"> APU START</li>
+      <li><input type="checkbox"> Flight Directors OFF, XPDR STANDBY</li>
+      <li><input type="checkbox"> Landing/Strobe lights OFF, Taxi ON</li>
+    </ul>
+    <div class="avionics">
+      Lower DU: Flap/trim/spoilers; Upper DU: APU EGT rising; CDU: next leg if turnaround
+    </div>
+    <div class="atc">
+      “Ground, American 123, clear of 22R, taxi to gate 14 via Bravo.”
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>15. Shutdown</h3>
+    <ul>
+      <li><input type="checkbox"> Parking brake SET</li>
+      <li><input type="checkbox"> Engine levers CUTOFF, APU GEN ON</li>
+      <li><input type="checkbox"> IRS OFF, Fuel pumps/hyds/probe/window heat OFF</li>
+      <li><input type="checkbox"> XPDR OFF, Emergency Lights OFF</li>
+      <li><input type="checkbox"> Battery OFF (last)</li>
+    </ul>
+    <div class="fmc">
+      Route delete; pages go blank after IRS off
+    </div>
+    <div class="avionics">
+      ELEC: APU supply, blank after battery off
+    </div>
+    <div class="atc">
+      Confirm parking/shutdown position if required
+    </div>
+  </div>
+</body>
+</html>
